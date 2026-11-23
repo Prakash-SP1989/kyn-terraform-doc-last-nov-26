@@ -16,3 +16,23 @@
   ###finally lets plan it
   terraform plan
   ##check the error 
+##if you are geetting provider error
+##create file provider.tf copy line number 21 till 33
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "=5.0.0"
+    }
+  }
+}
+
+# Configure the Microsoft Azure Provider
+provider "azurerm" {
+  features {}
+}
+
+#then again do
+terraform init
+terraform validate
+terraform plan
