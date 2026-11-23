@@ -1,0 +1,298 @@
+2026-11-23 09:57:10 From Gopal Das to Everyone:
+	https://github.com/gopal1409/kyn-terraform-azure-documentation
+	
+2026-11-23 10:00:47 From Babita Punia to Everyone:
+	Hi Gopal, we have pinged Abhishek and still not response received.
+	
+2026-11-23 10:06:26 From Gopal Das to Everyone:
+	ok
+	
+2026-11-23 11:03:23 From Gopal Das to Everyone:
+	11:20 team
+	
+2026-11-23 11:20:34 From Prakash S to Everyone:
+	I am back now
+	
+2026-11-23 11:20:51 From Manjunath Bhat to Everyone:
+	Back
+	
+2026-11-23 11:21:56 From YEDOTI GEETHA to Everyone:
+	Back
+	
+2026-11-23 11:22:03 From pragnyajit pradhan to Everyone:
+	Back
+	
+2026-11-23 11:22:32 From manikandanmk to Everyone:
+	Back
+	
+2026-11-23 11:27:06 From Gopal Das to Everyone:
+	https://docs.google.com/spreadsheets/d/1kxdTOP2ySH-JnxC1F2PQ-Of2X54YopaV/edit?usp=sharing&ouid=111571114165174089785&rtpof=true&sd=true
+	
+2026-11-23 11:28:37 From Gopal Das to Everyone:
+	https://docs.google.com/spreadsheets/d/1kxdTOP2ySH-JnxC1F2PQ-Of2X54YopaV/edit?usp=sharing&ouid=111571114165174089785&rtpof=true&sd=true
+	
+2026-11-23 11:31:24 From Prabhuraj Kalyani to Everyone:
+	Done
+	
+2026-11-23 11:31:28 From Santanu Mukherjee to Everyone:
+	done
+	
+2026-11-23 11:31:29 From manikandanmk to Everyone:
+	Done
+	
+2026-11-23 11:31:30 From YEDOTI GEETHA to Everyone:
+	Done
+	
+2026-11-23 11:31:55 From pragnyajit pradhan to Everyone:
+	Done
+	
+2026-11-23 11:32:08 From Thiyagu to Everyone:
+	Done
+	
+2026-11-23 11:34:44 From Manojkumar to Everyone:
+	Done
+	
+2026-11-23 11:35:00 From Manjunath Bhat to Everyone:
+	Logged in
+	
+2026-11-23 11:35:27 From DJ to Everyone:
+	Able to Login
+	
+2026-11-23 11:35:43 From VinayKumarMaddela to Everyone:
+	Done
+	
+2026-11-23 11:38:39 From Santanu Mukherjee to Everyone:
+	No not using Abhishek’s account
+	
+2026-11-23 11:39:40 From Manojkumar to Everyone:
+	we can remove previous authenticator device in this link 
+	https://mysignins.microsoft.com/security-info
+	
+2026-11-23 11:41:19 From Prakash S to Everyone:
+	Done with Abhishek.
+	
+2026-11-23 11:56:21 From Gopal Das to Everyone:
+	pcap proxy global protect vpn disconnect
+	
+2026-11-23 11:57:02 From Gopal Das to Everyone:
+	windows
+	
+2026-11-23 12:02:44 From Manjunath Bhat to Everyone:
+	Connected
+	
+2026-11-23 12:02:52 From manikandanmk to Everyone:
+	RDP connected
+	
+2026-11-23 12:03:02 From Manojkumar to Everyone:
+	VM Created able to RDP
+	
+2026-11-23 12:03:16 From YEDOTI GEETHA to Everyone:
+	able to RDP
+	
+2026-11-23 12:04:58 From pragnyajit pradhan to Everyone:
+	VM Created
+	
+2026-11-23 12:05:53 From VinayKumarMaddela to Everyone:
+	Connected to RDP
+	
+2026-11-23 12:12:40 From Gopal Das to Everyone:
+	GitHub - gopal1409/kyn-terraform-azure-documentation · GitHub
+	
+2026-11-23 12:12:48 From pragnyajit pradhan to Everyone:
+	connected to RDP
+	
+2026-11-23 12:18:14 From Gopal Das to Everyone:
+	https://github.com/gopal1409/kyn-terraform-doc-last-nov-26/tree/main
+	
+2026-11-23 12:20:51 From Gopal Das to Everyone:
+	@Sandeep Kumar Verma Loda3780
+	
+2026-11-23 12:23:53 From Gopal Das to Everyone:
+	https://github.com/gopal1409/kyn-terraform-doc-last-nov-26
+	
+2026-11-23 12:25:59 From YEDOTI GEETHA to Everyone:
+	Installed
+	
+2026-11-23 12:26:43 From VinayKumarMaddela to Everyone:
+	Done
+	
+2026-11-23 12:27:43 From manikandanmk to Everyone:
+	Installation completed
+	
+2026-11-23 12:28:22 From DJ to Everyone:
+	Installed.
+	
+2026-11-23 12:32:00 From Manojkumar to Everyone:
+	Installation completed
+	
+2026-11-23 12:33:31 From Santanu Mukherjee to Everyone:
+	completed
+	
+2026-11-23 12:39:51 From Gopal Das to Everyone:
+	https://github.com/gopal1409/kyn-terraform-doc-last-nov-26/blob/main/day1-install-choco-tools
+	
+2026-11-23 12:40:12 From Manjunath Bhat to Everyone:
+	Installation completed
+	
+2026-11-23 12:43:21 From Thiyagu to Everyone:
+	Installation completed
+	
+2026-11-23 12:44:53 From Prakash S to Everyone:
+	Prakash.s@kyndryl.com
+	
+2026-11-23 12:58:38 From Gopal Das to Everyone:
+	2:00 pm
+	
+2026-11-23 13:00:26 From Gopal Das to Everyone:
+	lunch till 2:00 pm
+	
+2026-11-23 13:04:24 From Sandeep Kumar Verma to Everyone:
+	Lab setup done
+	
+2026-11-23 13:04:28 From Sandeep Kumar Verma to Everyone:
+	PS C:\Windows\system32> git version
+	git version 2.56.1.windows.1
+	PS C:\Windows\system32> terraform --version
+	Terraform v1.17.2
+	on windows_amd64
+	PS C:\Windows\system32>
+	
+2026-11-23 14:01:09 From manikandanmk to Everyone:
+	Back
+	
+2026-11-23 14:01:22 From Santanu Mukherjee to Everyone:
+	back
+	
+2026-11-23 14:01:34 From YEDOTI GEETHA to Everyone:
+	back
+	
+2026-11-23 14:01:40 From Manojkumar Sundaram to Everyone:
+	Back
+	
+2026-11-23 14:01:56 From pragnyajit pradhan to Everyone:
+	Back
+	
+2026-11-23 14:03:04 From Manjunath Bhat to Everyone:
+	Back
+	
+2026-11-23 14:03:20 From Prabhuraj Kalyani to Everyone:
+	back
+	
+2026-11-23 14:03:26 From Thiyagu to Everyone:
+	Back
+	
+2026-11-23 14:24:26 From Gopal Das to Everyone:
+	sentinel policy
+	
+2026-11-23 14:26:07 From Gopal Das to Everyone:
+	opa
+	
+2026-11-23 14:26:19 From Gopal Das to Everyone:
+	open policy
+	
+2026-11-23 14:33:21 From Gopal Das to Everyone:
+	kyn-nove-last-26
+	
+2026-11-23 14:56:33 From Gopal Das to Everyone:
+	https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group
+	
+2026-11-23 14:57:59 From Gopal Das to Everyone:
+	https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_virtual_machine
+	
+2026-11-23 15:22:25 From Gopal Das to Everyone:
+	https://github.com/gopal1409/kyn-terraform-doc-last-nov-26
+	
+2026-11-23 15:34:11 From Gopal Das to Everyone:
+	https://github.com/gopal1409/kyn-terraform-doc-last-nov-26/blob/main/day1-resource-group.tf
+	
+2026-11-23 15:35:32 From Gopal Das to Everyone:
+	https://github.com/gopal1409/kyn-terraform-doc-last-nov-26/blob/main/day1-resource-group.tf
+	
+2026-11-23 15:38:10 From manikandanmk to Everyone:
+	Screenshot2026_11_23_153805.jpg
+	
+2026-11-23 15:39:15 From Santanu Mukherjee to Everyone:
+	Error: Missing required argument
+	│ 
+	│   with provider["registry.terraform.io/hashicorp/azurerm"],
+	│   on <empty> line 0:
+	│   (source code not available)
+	│ 
+	│ The argument "features" is required, but no definition was found.
+	
+2026-11-23 15:40:14 From Gopal Das to Everyone:
+	https://docs.google.com/spreadsheets/d/1kxdTOP2ySH-JnxC1F2PQ-Of2X54YopaV/edit?usp=sharing&ouid=111571114165174089785&rtpof=true&sd=true
+	
+2026-11-23 15:41:05 From Prakash S to Everyone:
+	Getting provider error
+	{CB04D996-90FD-4288-8A28-38576324CCE5}.png
+	
+2026-11-23 15:41:15 From Santanu Mukherjee to Everyone:
+	Error: Missing required argument
+	│ 
+	│   with provider["registry.terraform.io/hashicorp/azurerm"],
+	│   on <empty> line 0:
+	│   (source code not available)
+	│ 
+	│ The argument "features" is required, but no definition was found.
+	
+2026-11-23 15:44:16 From Gopal Das to Everyone:
+	https://docs.google.com/spreadsheets/d/1kxdTOP2ySH-JnxC1F2PQ-Of2X54YopaV/edit?gid=887321753#gid=887321753
+	
+2026-11-23 15:47:00 From manikandanmk to Everyone:
+	Screenshot2026_11_23_154656.jpg
+	
+2026-11-23 15:53:10 From Santanu Mukherjee to Everyone:
+	Terraform has been successfully initialized!
+	
+	You may now begin working with Terraform. Try running "terraform plan" to see
+	any changes that are required for your infrastructure. All Terraform commands
+	should now work.
+	
+	If you ever set or change modules or backend configuration for Terraform,
+	rerun this command to reinitialize your working directory. If you forget, other
+	commands will detect it and remind you to do so if necessary.
+	PS C:\Users\santanumuk\Desktop\tf-project>
+	
+2026-11-23 15:55:42 From Gopal Das to Everyone:
+	prem
+	
+2026-11-23 15:55:51 From Gopal Das to Everyone:
+	Admin@12345678
+	
+2026-11-23 15:58:38 From Gopal Das to Everyone:
+	https://github.com/gopal1409/kyn-terraform-doc-last-nov-26/blob/main/day1-install-choco-tools
+	
+2026-11-23 16:04:39 From Sandeep Kumar Verma to Everyone:
+	done
+	
+2026-11-23 16:11:35 From Gopal Das to Everyone:
+	https://github.com/gopal1409/kyn-terraform-doc-last-nov-26/blob/main/day1-resource-group.tf
+	
+2026-11-23 16:43:40 From Gopal Das to Everyone:
+	https://github.com/gopal1409/kyn-terraform-doc-last-nov-26/blob/main/day1-service-principal
+	
+2026-11-23 16:52:45 From Gopal Das to Everyone:
+	https://github.com/gopal1409/kyn-terraform-doc-last-nov-26/blob/main/day1-service-principal
+	
+2026-11-23 16:58:52 From YEDOTI GEETHA to Everyone:
+	Resource group created
+	
+2026-11-23 17:02:32 From Gopal Das to Everyone:
+	@manikandanmk az ad sp create-for-rbac -n "mani1" --role contributor --scope /subscriptions/73cbb2ca-6092-4ae4-9e58-362b625a3b20
+	
+2026-11-23 17:02:46 From Manjunath Bhat to Everyone:
+	RG created
+	
+2026-11-23 17:12:16 From manikandanmk to Everyone:
+	RG created
+	
+2026-11-23 17:16:38 From VinayKumarMaddela to Everyone:
+	Resource group created
+	
+2026-11-23 17:22:08 From Pramathnath Devarakonda to Everyone:
+	RG Created
+	
+2026-11-23 17:24:04 From Manojkumar to Everyone:
+	RG created
+	
