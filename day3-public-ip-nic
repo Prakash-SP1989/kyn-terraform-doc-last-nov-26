@@ -27,3 +27,8 @@ resource "azurerm_network_interface" "web_nic" {
 output "instance_publicip" {
   value = azurerm_public_ip.web_vm_publicip.ip_address
 }
+
+#finally run terraform plan terraform apply
+##lets graph it terraform graph 
+##whatever output you get copy the same from starting till end and paste it inside this website
+https://dreampuf.github.io/GraphvizOnline/
