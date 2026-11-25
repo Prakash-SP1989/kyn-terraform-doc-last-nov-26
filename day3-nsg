@@ -18,7 +18,7 @@ locals {
   web_nsg_rule = { #named gopal #men clothing
     "110" : "22", #expression in key value format priority and port number s
     "120" : "80", #me
-    "130" : 443 #large
+    "130" : "443" #large
   }
  }
 #IF I CALL local.web_nsg_rule will all this three priority and port will be called 
