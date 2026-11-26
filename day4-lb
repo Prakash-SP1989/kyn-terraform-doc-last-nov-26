@@ -29,3 +29,34 @@ resource "azurerm_lb_backend_address_pool" "lb_backend_pool" {
   loadbalancer_id = azurerm_lb.web_lb.id
    name                = "${local.resource_name_prefix}-backendpool"
 }
+#inside lb.tf append this line at the end from 35 till 62
+
+#probe
+resource "azurerm_lb_probe" "lb_probe" {
+  loadbalancer_id     = azurerm_lb.web_lb.id
+  name                = "frontendprobe"
+  protocol            = "Tcp"
+  port                = 80
+  interval_in_seconds = 30
+  number_of_probes    = 2 #every 30 second lb will ping your vms 1 min if i dont get a response it will stop 
+}
+
+#lb rule
+resource "azurerm_lb_rule" "web_lb_rule" {
+  loadbalancer_id                = azurerm_lb.web_lb.id
+  name                           = "lb_rule"
+  protocol                       = "Tcp"
+  frontend_port                  = 80 #lb #443
+  backend_port                   = 80 #instance port tomcat 8080
+  frontend_ip_configuration_name = azurerm_lb.web_lb.frontend_ip_configuration[0].name
+  backend_address_pool_ids       = [azurerm_lb_backend_address_pool.lb_backend_pool.id]
+  probe_id                       = azurerm_lb_probe.lb_probe.id
+}
+
+##finally attach all the instance nic card to backend pool
+resource "azurerm_network_interface_backend_address_pool_association" "lb_backend_pool_association" {
+  for_each                = var.linux_vms
+  network_interface_id    = azurerm_network_interface.web_nic[each.key].id
+  ip_configuration_name   = azurerm_network_interface.web_nic[each.key].ip_configuration[0].name
+  backend_address_pool_id = azurerm_lb_backend_address_pool.lb_backend_pool.id
+}
