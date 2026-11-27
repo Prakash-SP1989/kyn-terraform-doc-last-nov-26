@@ -1,5 +1,5 @@
 #lets configure the git global variables
-  git config --global user-name "gopal"
+  git config --global user.name "gopal"
   git config --global user.email "gopal1409@gmail.com"
 #lets create a project directory
 mkdir projectsky
