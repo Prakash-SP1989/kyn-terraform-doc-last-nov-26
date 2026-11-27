@@ -52,5 +52,5 @@ echo "adding subtract function in calcy application" >> calcy.py
 git diff
 git add  calcy.py
 git commit -m "added subtract function"
-git push orign --all
+git push origin --all
 ##go to github check now you have three commit 
