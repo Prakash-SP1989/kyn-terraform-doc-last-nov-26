@@ -21,3 +21,14 @@ ls -la
 ls -la .git
   #now if you do git status it will show git is start trciking your files
  git status
+
+#lets do our first commit 
+#add your fil;e to staging area
+ git add calcy.py
+#do a commit
+git commit -m "started my calcy program"
+#git status will not show the calcy.py file
+  521  git status
+  522  ls
+#git log will show our first commit
+  523  git log
