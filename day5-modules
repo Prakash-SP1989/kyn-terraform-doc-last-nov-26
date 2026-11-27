@@ -1,0 +1,108 @@
+#customer has created the skellton and upload in github
+  ##on your rdp you need to create a folder module-skyrocket
+  ##open visual studio code click on file open folder select module-skyrocket
+
+  ##inside the folder creaate a file provider.tf copy from line 7 till 20
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "=5.0.0" #important for production environment
+    }
+  }
+}
+
+# Configure the Microsoft Azure Provider
+provider "azurerm" {
+  features {}
+
+}
+
+##create a file variables.tf copy from line 23 till 83
+  variable "resource_group_name" {
+  description = "this is the name of the rg"
+  type        = string
+  default     = "rg-kyn-gopal"
+}
+
+variable "location" {
+  description = "this is the location of the rg"
+  type        = string
+  default     = "eastus"
+}
+
+variable "vnet_name" {
+  description = "this is the name of the vnet"
+  type        = string
+  default     = "vnet-kyn"
+}
+
+variable "vnet_address_space" {
+  description = "this is the address space of the vnet"
+  type        = list(string)
+  default     = ["172.31.0.0/16"]
+}
+
+variable "subnet_name" {
+  description = "this is the name of the subnet"
+  type        = string
+  default     = "subnet-kyn"
+}
+variable "subnet_address_prefixes" {
+  description = "this is the address prefixes of the subnet"
+  type        = list(string)
+  default     = ["172.31.1.0/24"]
+}
+
+variable "environment" {
+  type    = string
+  default = "dev"
+}
+
+variable "department" {
+  type    = string
+  default = "sap"
+}
+variable "linux_vms" {
+  description = "linux vm configuration across az"
+  type = map(object({
+    vm_size = string
+    zone    = string
+  }))
+  default = {
+    "web1" = {
+      vm_size = "Standard_D2ads_v6"
+      zone    = "1"
+    }
+    "web2" = {
+      vm_size = "Standard_D2s_v6"
+      zone    = "2"
+    }
+  }
+}
+
+#create a file main.tf copy from line 86 till 103 and change my name to your name
+  module "test" {
+  source                  = "github.com/gopal1409/kyn-voc-end26-cloud-integration.git"
+  resource_group_name     = "rg-kyn-gopal"
+  location                = "eastus"
+  vnet_name               = "kyn-vnet"
+  vnet_address_space      = ["10.0.0.0/16"]
+  subnet_name             = "kyn-web-subnet"
+  subnet_address_prefixes = ["10.0.1.0/24"]
+  environment             = "dev"
+  department              = "it"
+  linux_vms = {
+    "web1" = {
+      vm_size = "Standard_D2ads_v6"
+      zone    = "1"
+    }
+  }
+
+}
+
+#open the terminal in visual studio code copy paste the env varaibles
+  terraform init
+  terraform plan
+  terraform apply
