@@ -1,0 +1,48 @@
+###create a new file called as .gitignore copy from line 2 till 5
+.terraform
+.terraform.lock.hcl
+terraform.tfstate
+terrform.tfstate.backup
+
+#inside the provider.tf delete everything we will put env varaibles for communicate to azure cloud in feature block copy from line 9 till 41
+  #open the provider.tf file delete everything copy from line 2 till 34
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "=5.0.0" #important for production environment
+    }
+  }
+}
+
+# Configure the Microsoft Azure Provider
+provider "azurerm" {
+  features {}
+  subscription_id = var.subscription_id
+  client_id       = var.client_id
+  client_secret   = var.client_secret
+  tenant_id       = var.tenant_id
+}
+
+variable "client_id" {
+  type = string
+}
+
+variable "client_secret" {
+  type = string
+}
+
+variable "subscription_id" {
+  type = string
+}
+
+variable "tenant_id" {
+  type = string
+}
+
+###after this do 
+  git init
+  git add .
+  git commit -m "terraform project"
+  ###then go to github click on the + icon create a new repo give the name as kyn-voc-end26-cloud-integration
+  ##3then click on ssh copy all the three ssh command and paste it in the terminal this code will not be available in your github
