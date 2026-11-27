@@ -32,3 +32,18 @@ git commit -m "started my calcy program"
   522  ls
 #git log will show our first commit
   523  git log
+##lets add another changes 
+ 526  cat calcy.py
+#we will add mltiply function in application. 
+echo "adding multiple function to calcy application" >> calcy.py
+#now you can see two lines
+cat calcy.py
+#this will show your code is modified
+git status
+#if you want to see the modifuycation content
+git diff
+#lets create a new commit
+ git add calcy.py
+git commit -m "added multiple function to my calcy application"
+#git log will show two version
+git log
