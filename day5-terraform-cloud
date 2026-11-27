@@ -5,7 +5,7 @@ terraform.tfstate
 terrform.tfstate.backup
 
 #inside the provider.tf delete everything we will put env varaibles for communicate to azure cloud in feature block copy from line 9 till 41
-  #open the provider.tf file delete everything copy from line 2 till 34
+  #open the provider.tf file delete everything copy from line 9 till 34
 terraform {
   required_providers {
     azurerm = {
