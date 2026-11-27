@@ -1,0 +1,23 @@
+#lets configure the git global variables
+  git config --global user-name "gopal"
+  git config --global user.email "gopal1409@gmail.com"
+#lets create a project directory
+mkdir projectsky
+cd projectsky/
+#isnide the project dir we are creating some blank file
+touch DS_Store
+touch calcy.py
+touch secret
+ touch auth
+ls
+echo "starting my calcy program" > calcy.py
+ cat calcy.py
+  #git status will show this is not managed by it
+git status
+  #git init will intialized the current directory
+git init
+  #git init will create a .git directory to manage your versioing never delete this dir
+ls -la
+ls -la .git
+  #now if you do git status it will show git is start trciking your files
+ git status
