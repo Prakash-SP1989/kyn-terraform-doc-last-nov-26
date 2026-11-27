@@ -1,0 +1,534 @@
+Complete Terraform Command Reference – Beginner to Advanced
+This is a Terraform command cheat sheet for your Azure Infrastructure as Code training. It covers basic commands, resource deployment, state file management, variables, modules, workspaces, troubleshooting, and production workflows.
+1. Terraform basic commands
+Command	Purpose
+terraform version	Display Terraform version
+terraform -help	Display general help
+terraform -help plan	Help for a specific command
+terraform init	Initialize Terraform working directory
+terraform fmt	Format Terraform configuration files
+terraform validate	Validate configuration
+terraform console	Open interactive expression console
+terraform providers	Display required providers
+terraform graph	Generate dependency graph
+terraform metadata	Display Terraform metadata subcommands
+
+Practical examples:
+terraform version
+terraform -help
+terraform -help apply
+terraform fmt
+terraform fmt -recursive
+terraform validate
+terraform providers
+
+
+2. Terraform initialization commands
+These commands are used before deploying infrastructure.
+Command	Purpose
+terraform init	Initialize Terraform
+terraform init -upgrade	Upgrade provider selections within constraints
+terraform init -reconfigure	Reconfigure backend
+terraform init -migrate-state	Migrate existing state to a new backend
+terraform init -backend=false	Initialize without configuring backend
+terraform init -get=false	Skip downloading modules
+
+Examples:
+terraform init
+terraform init -upgrade
+terraform init -reconfigure
+terraform init -migrate-state
+
+
+3. Terraform plan commands
+Used to preview changes before creating or modifying infrastructure.
+Command	Purpose
+terraform plan	Preview infrastructure changes
+terraform plan -out=tfplan	Save execution plan
+terraform plan -var="environment=dev"	Pass variable through CLI
+terraform plan -var-file="dev.tfvars"	Use a specific variable file
+terraform plan -refresh-only	Preview state refresh
+terraform plan -target=RESOURCE	Target a specific resource
+terraform plan -destroy	Preview resource destruction
+terraform show tfplan	Inspect saved plan
+
+Examples:
+terraform plan
+
+terraform plan -out=gopal.tfplan
+
+terraform plan -var-file="dev.tfvars"
+
+terraform plan -var="environment=prod"
+
+terraform plan -destroy
+
+
+4. Terraform apply commands
+Used to create and update infrastructure.
+Command	Purpose
+terraform apply	Apply configuration changes
+terraform apply -auto-approve	Apply without interactive approval
+terraform apply tfplan	Apply a saved plan
+terraform apply -var-file="dev.tfvars"	Apply using variable file
+terraform apply -replace=RESOURCE	Replace a resource
+terraform apply -target=RESOURCE	Apply changes targeting a resource
+terraform apply -refresh-only	Update state from actual infrastructure
+
+Examples:
+terraform apply
+
+terraform apply -auto-approve
+
+terraform apply gopal.tfplan
+
+terraform apply -var-file="dev.tfvars"
+
+terraform apply -replace='azurerm_linux_virtual_machine.web_vm["web1"]'
+
+
+Production caution
+Avoid routinely using -target or -auto-approve in production. Review the complete execution plan before applying changes.
+5. Terraform destroy commands
+Used to remove infrastructure managed by Terraform.
+Command	Purpose
+terraform destroy	Destroy managed infrastructure
+terraform destroy -auto-approve	Destroy without interactive approval
+terraform plan -destroy	Preview destruction
+terraform destroy -target=RESOURCE	Destroy a targeted resource
+terraform apply -destroy	Alternative destroy workflow
+
+Examples:
+terraform destroy
+
+terraform plan -destroy
+
+terraform destroy -auto-approve
+
+terraform destroy -target=azurerm_resource_group.my_rg
+
+
+Remember: Destroying an Azure Resource Group can also delete its contained resources. Review the plan carefully.
+
+6. Terraform state file commands
+Very important for your Azure training
+The state file maintains the mapping between Terraform resource addresses and actual Azure resources.
+Command	Purpose
+terraform state list	List all managed resources
+terraform state show RESOURCE	Display resource details
+terraform state pull	Download current state
+terraform state push FILE	Upload state file
+terraform state mv OLD NEW	Move or rename resource address
+terraform state rm RESOURCE	Remove resource from state
+terraform state replace-provider	Replace provider source in state
+terraform show	Display current state or saved plan
+
+Examples using your Azure resources:
+# List all resources
+terraform state list
+
+# Inspect Resource Group
+terraform state show azurerm_resource_group.my_rg
+
+# Inspect Virtual Network
+terraform state show azurerm_virtual_network.vnet
+
+# Inspect subnet
+terraform state show azurerm_subnet.web_subnet
+
+# Inspect first VM
+terraform state show 'azurerm_linux_virtual_machine.web_vm["web1"]'
+
+# Inspect second VM
+terraform state show 'azurerm_linux_virtual_machine.web_vm["web2"]'
+
+# Download state
+terraform state pull
+
+# Display state
+terraform show
+
+
+Rename a resource reference:
+terraform state mv \
+azurerm_resource_group.my_rg \
+azurerm_resource_group.gopal_rg
+
+
+Remove a resource from Terraform state without deleting Azure infrastructure:
+terraform state rm azurerm_resource_group.my_rg
+
+
+Be careful: state rm does not destroy the Azure resource. Terraform will no longer track that resource at the removed address.
+7. Terraform state refresh and drift commands
+Command	Purpose
+terraform plan -refresh-only	Detect and preview state differences
+terraform apply -refresh-only	Update state from actual infrastructure
+terraform refresh	Legacy refresh command; deprecated
+terraform plan	Refresh and compare infrastructure
+terraform force-unlock LOCK_ID	Release a state lock when safe
+
+Examples:
+# Detect infrastructure drift
+terraform plan
+
+# Preview state refresh
+terraform plan -refresh-only
+
+# Update state
+terraform apply -refresh-only
+
+# Unlock state (only after confirming no active operation)
+terraform force-unlock LOCK_ID
+
+
+8. Terraform variable commands
+These commands help manage input variables.
+Command	Purpose
+terraform plan -var	Pass a variable
+terraform apply -var	Pass a variable during apply
+terraform plan -var-file	Load a variable file
+terraform apply -var-file	Apply with variable file
+terraform console	Evaluate variable expressions
+
+Examples:
+terraform plan -var="environment=dev"
+
+terraform plan -var="location=eastus"
+
+terraform plan -var-file="dev.tfvars"
+
+terraform plan -var-file="prod.tfvars"
+
+terraform apply -var-file="dev.tfvars"
+
+
+Variable precedence generally follows this order, from lower to higher:
+1. Variable defaults.
+2. terraform.tfvars and terraform.tfvars.json.
+3. *.auto.tfvars files.
+4. -var-file and -var command-line arguments, with later CLI arguments taking precedence.
+9. Terraform output commands
+Used to retrieve information exposed through output blocks.
+Command	Purpose
+terraform output	Display all outputs
+terraform output RESOURCE	Display a specific output
+terraform output -json	Display outputs in JSON
+terraform output -raw NAME	Display raw output value
+
+Examples:
+terraform output
+
+terraform output resource_group_name
+
+terraform output vnet_name
+
+terraform output -json
+
+terraform output -raw resource_group_location
+
+
+For your two Linux VMs:
+terraform output linux_vm_details
+
+terraform output linux_vm_public_ips
+
+
+10. Terraform workspace commands
+Workspaces allow multiple state instances for the same Terraform configuration.
+Command	Purpose
+terraform workspace list	List workspaces
+terraform workspace show	Show current workspace
+terraform workspace new dev	Create workspace
+terraform workspace select dev	Select workspace
+terraform workspace delete dev	Delete workspace
+terraform workspace select -or-create dev	Select or create workspace
+
+Examples:
+terraform workspace list
+
+terraform workspace show
+
+terraform workspace new dev
+
+terraform workspace new staging
+
+terraform workspace new prod
+
+terraform workspace select dev
+
+terraform workspace select prod
+
+
+Example workspace architecture
+dev
+
+dev state
+
+
+staging
+
+staging state
+
+
+prod
+
+prod state
+
+
+
+Each workspace maintains a separate state for the same configuration and backend.
+
+11. Terraform resource import commands
+Import existing Azure resources into Terraform management.
+Command	Purpose
+terraform import ADDRESS ID	Import an existing resource
+terraform plan	Verify imported resource configuration
+terraform state show ADDRESS	Inspect imported resource
+
+Example:
+terraform import \
+azurerm_resource_group.my_rg \
+/subscriptions/SUBSCRIPTION_ID/resourceGroups/gopal-rg
+
+
+Important: Terraform import updates state, but it does not automatically generate your complete .tf configuration. You must write the corresponding resource configuration yourself.
+
+Terraform also supports configuration-driven import using an import block:
+import {
+  to = azurerm_resource_group.my_rg
+  id = "/subscriptions/SUBSCRIPTION_ID/resourceGroups/gopal-rg"
+}
+
+
+Then:
+terraform plan
+terraform apply
+
+
+12. Terraform modules commands
+Command	Purpose
+terraform init	Download module dependencies
+terraform get	Download and update modules
+terraform get -update	Update modules
+terraform providers	Display provider dependencies
+terraform graph	Generate dependency graph
+
+Examples:
+terraform init
+
+terraform get
+
+terraform get -update
+
+terraform providers
+
+
+Example module structure:
+terraform-project/
+│
+├── main.tf
+├── variables.tf
+├── outputs.tf
+│
+└── modules/
+    ├── networking/
+    ├── security-group/
+    ├── compute/
+    └── alb/
+
+
+13. Terraform debugging and troubleshooting commands
+Command	Purpose
+terraform fmt -check	Check formatting without modifying files
+terraform validate	Check configuration
+terraform providers	Inspect provider requirements
+terraform graph	Inspect dependencies
+terraform console	Test expressions
+terraform show	Inspect state or plan
+terraform force-unlock	Release a stale lock when safe
+
+Enable detailed logging:
+
+Linux/macOS:
+export TF_LOG=DEBUG
+export TF_LOG_PATH=terraform.log
+terraform plan
+
+
+Windows PowerShell:
+$env:TF_LOG="DEBUG"
+$env:TF_LOG_PATH="terraform.log"
+terraform plan
+
+
+Disable logging:
+unset TF_LOG
+unset TF_LOG_PATH
+
+
+PowerShell:
+Remove-Item Env:TF_LOG
+Remove-Item Env:TF_LOG_PATH
+
+
+For more detailed debugging, Terraform supports logging levels such as TRACE, DEBUG, INFO, WARN, and ERROR.
+14. Terraform advanced commands
+Command	Purpose
+terraform taint	Legacy resource taint command; deprecated
+terraform untaint	Remove legacy taint marker
+terraform apply -replace	Mark a resource for replacement
+terraform providers lock	Update provider lock-file checksums
+terraform providers mirror	Mirror provider packages
+terraform login	Configure Terraform Cloud credentials
+terraform logout	Remove Terraform Cloud credentials
+terraform test	Run Terraform tests
+terraform version -json	Show version details in JSON
+terraform validate -json	Show validation results in JSON
+
+Examples:
+terraform apply -replace=azurerm_virtual_network.vnet
+
+terraform providers lock
+
+terraform providers mirror ./provider-mirror
+
+terraform test
+
+terraform version -json
+
+terraform validate -json
+
+
+Note: terraform taint is deprecated. Prefer terraform apply -replace=RESOURCE.
+15. Terraform commands specifically useful for your Azure project
+For your current project containing Resource Group, VNet, Subnet, NSG, Public IP, NIC and two Linux VMs:
+Task	Command
+Initialize	terraform init
+Validate	terraform validate
+Format	terraform fmt -recursive
+Preview	terraform plan
+Create infrastructure	terraform apply
+List resources	terraform state list
+Inspect VM 1	terraform state show 'azurerm_linux_virtual_machine.web_vm["web1"]'
+Inspect VM 2	terraform state show 'azurerm_linux_virtual_machine.web_vm["web2"]'
+Display outputs	terraform output
+Check dependency graph	terraform graph
+Refresh state	terraform apply -refresh-only
+Replace VM 1	terraform apply -replace='azurerm_linux_virtual_machine.web_vm["web1"]'
+Destroy infrastructure	terraform destroy
+
+16. Complete Terraform workflow – Classroom practical
+End-to-end Terraform execution
+1. Prepare configuration
+   terraform fmt -recursive
+2. Initialize providers
+   terraform init
+3. Validate configuration
+   terraform validate
+4. Create execution plan
+   terraform plan -out=gopal.tfplan
+5. Deploy Azure resources
+   terraform apply gopal.tfplan
+6. Verify resources
+   terraform state list
+   terraform output
+7. Inspect state
+   terraform show
+   terraform state pull
+8. Destroy resources when finished
+   terraform plan -destroy
+   terraform destroy
+
+17. Quick revision – Most important 20 commands
+Terraform command revision sheet
+20 commands
+
+Copy this list for your training notes.
+1.
+
+terraform init
+
+2.
+
+terraform init -upgrade
+
+3.
+
+terraform fmt
+
+4.
+
+terraform fmt -recursive
+
+5.
+
+terraform validate
+
+6.
+
+terraform plan
+
+7.
+
+terraform plan -out=tfplan
+
+8.
+
+terraform apply
+
+9.
+
+terraform apply tfplan
+
+10.
+
+terraform destroy
+
+11.
+
+terraform show
+
+12.
+
+terraform output
+
+13.
+
+terraform state list
+
+14.
+
+terraform state show RESOURCE
+
+15.
+
+terraform state pull
+
+16.
+
+terraform state mv OLD NEW
+
+17.
+
+terraform state rm RESOURCE
+
+18.
+
+terraform import ADDRESS ID
+
+19.
+
+terraform workspace list
+
+20.
+
+terraform graph
+
+
+ Copy all 20 commands
+18. Official Terraform documentation
+- Terraform CLI Commands
+- Terraform Configuration Language
+- Terraform State Management
+- AzureRM Provider Documentation
