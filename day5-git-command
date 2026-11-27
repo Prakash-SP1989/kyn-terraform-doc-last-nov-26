@@ -47,3 +47,10 @@ git diff
 git commit -m "added multiple function to my calcy application"
 #git log will show two version
 git log
+#lets make another change in calcy app 
+echo "adding subtract function in calcy application" >> calcy.py
+git diff
+git add  calcy.py
+git commit -m "added subtract function"
+git push orign --all
+##go to github check now you have three commit 
